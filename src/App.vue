@@ -30,8 +30,6 @@ const performSearch = () => {
   isLoading.value = true
   hasSearched.value = true
   error.value = null
-
-  // Use an any-typed fetch chain to avoid relying on the TS Promise lib when targeting ES5
   ;(window as any).fetch(`https://thai-nlem-api.onrender.com/api/drugs/search?q=${searchQuery.value}`)
     .then((response: any) => {
       if (!response.ok) {
